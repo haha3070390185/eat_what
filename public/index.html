@@ -3,17 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>今天吃啥 - 美食推荐</title>
+  <title>今天吃啥 - AI智能美食推荐</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
     <header class="header">
       <h1>🍽️ 今天吃啥</h1>
-      <p class="subtitle">让AI帮你决定今天的美食</p>
+      <p class="subtitle">AI智能美食推荐，越用越懂你</p>
     </header>
     
     <main class="main">
+      <!-- 用户偏好分析区域 -->
+      <div id="preferences-section" class="preferences-section hidden">
+        <div class="preferences-card">
+          <h3>🎯 您的口味偏好分析</h3>
+          <div id="preferences-content" class="preferences-content">
+            <!-- 动态填充 -->
+          </div>
+        </div>
+      </div>
+      
       <!-- 推荐语区域 -->
       <div id="recommendation-text" class="recommendation-text hidden">
         <p id="recommendation-text-content"></p>
@@ -22,28 +32,60 @@
       <!-- 按钮区域 -->
       <div class="button-container">
         <button id="get-recommendation-btn" class="btn-primary">
-          看看今天吃啥
+          🍳 看看今天吃啥
         </button>
       </div>
       
       <!-- 加载状态 -->
       <div id="loading" class="loading hidden">
         <div class="spinner"></div>
-        <p>正在为您挑选美食...</p>
+        <p>AI正在为您精心挑选美食...</p>
+        <p class="loading-subtitle">结合您的口味偏好进行个性化推荐</p>
       </div>
       
       <!-- 推荐卡片区域 -->
       <div id="cards-container" class="cards-container hidden">
-        <h2 class="section-title">为您推荐</h2>
+        <h2 class="section-title">
+          <span class="ai-badge">🤖 AI推荐</span>
+          为您精心挑选
+        </h2>
         <div id="cards-wrapper" class="cards-wrapper">
           <!-- 卡片将通过JavaScript动态生成 -->
+        </div>
+      </div>
+      
+      <!-- 历史点赞展示 -->
+      <div id="history-section" class="history-section hidden">
+        <h3 class="history-title">📊 您的点赞记录</h3>
+        <div id="history-foods" class="history-foods">
+          <!-- 动态填充 -->
         </div>
       </div>
     </main>
     
     <footer class="footer">
-      <p>❤️ 喜欢的话记得点赞哦，AI会根据您的口味调整推荐</p>
+      <p>❤️ 为喜欢的菜品点赞，AI会越来越懂您的口味</p>
+      <p class="footer-small">基于DeepSeek AI智能推荐引擎</p>
     </footer>
+  </div>
+  
+  <!-- AI推荐理由弹窗 -->
+  <div id="reason-modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modal-food-name" class="modal-title"></h3>
+        <button id="modal-close" class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <h4>🤔 为什么推荐这道菜？</h4>
+        <p id="modal-reason" class="modal-reason"></p>
+      </div>
+      <div class="modal-footer">
+        <button id="modal-like-btn" class="btn-secondary">
+          <span class="like-icon">🤍</span> 为这道菜点赞
+        </button>
+      </div>
+    </div>
   </div>
   
   <script src="script.js"></script>
