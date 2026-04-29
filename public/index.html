@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>今天吃啥 - 美食推荐</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>🍽️ 今天吃啥</h1>
+      <p class="subtitle">让AI帮你决定今天的美食</p>
+    </header>
+    
+    <main class="main">
+      <!-- 推荐语区域 -->
+      <div id="recommendation-text" class="recommendation-text hidden">
+        <p id="recommendation-text-content"></p>
+      </div>
+      
+      <!-- 按钮区域 -->
+      <div class="button-container">
+        <button id="get-recommendation-btn" class="btn-primary">
+          看看今天吃啥
+        </button>
+      </div>
+      
+      <!-- 加载状态 -->
+      <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p>正在为您挑选美食...</p>
+      </div>
+      
+      <!-- 推荐卡片区域 -->
+      <div id="cards-container" class="cards-container hidden">
+        <h2 class="section-title">为您推荐</h2>
+        <div id="cards-wrapper" class="cards-wrapper">
+          <!-- 卡片将通过JavaScript动态生成 -->
+        </div>
+      </div>
+    </main>
+    
+    <footer class="footer">
+      <p>❤️ 喜欢的话记得点赞哦，AI会根据您的口味调整推荐</p>
+    </footer>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
